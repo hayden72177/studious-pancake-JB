@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Bai</title>
+    <style>
+        .container {
+            text-align: center;
+            display: block;
+        }
+        .main {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #card {
+            padding: 200px 70px;
+            border-style: solid;
+            border-width: 2px;
+            text-shadow: 1px 0.5px #ff0000;
+        }
+        #star {
+            position: absolute;
+            bottom: 300px;
+            left: 696px;
+        }
+        /*
+        ⭐:
+        710
+        ⭐⭐:
+        703
+        ⭐⭐⭐:
+        696
+        ⭐⭐⭐⭐:
+        689
+        ⭐⭐⭐⭐⭐:
+        681
+        */
+    </style>
+    <script>
+        window.cards = {
+            threeStar: ["普信男", "武器大师", "电摇大师", "冰男孩", "污蔑之神", "盲森", "螳螂男", "理工男", "算命大师"],
+            fourStar: ["萨日朗", "多啦A梦", "伊丽莎白", "退钱哥", "黄豆哥", "猪猪侠", "007", "鲨币", "奖励哥", "肾虚哥", "内卷王", "狼人", "绿茶战士", "叙利亚难民", "高质量男性", "女拳", "键盘侠"],
+            fiveStar: ["孙笑川", "丁真", "香蕉君", "张三", "JOJO", "蔡徐坤", "真香哥", "Jake Bai", "MC 之神", "金坷垃", "懂哥", "马保国", "阴阳神"]
+        };
+        window.a = ["oneStar", "twoStar", "threeStar", "fourStar", "fiveStar"];
+        document.addEventListener("DOMContentLoaded", (event) => {
+            document.getElementById("card").innerHTML = "Press Enter";
+        });
+        document.addEventListener("keydown", (event) => {
+            let exp;
+            const star = document.getElementById("star");
+            if (event.code === "Space") {
+                let n = Math.random(),
+                    i_char = Math.floor(Math.random() * 100);
+                if (n < 0.943) {
+                    exp = window.cards.threeStar[i_char % 9];
+                    star.style.left = "696px";
+                    star.innerHTML = "⭐⭐⭐"
+                } else if (n < (0.943+0.051)) {
+                    exp = window.cards.fourStar[i_char % 17];
+                    star.style.left = "689px";
+                    star.innerHTML = "⭐⭐⭐⭐"
+                } else {
+                    exp = window.cards.fiveStar[i_char % 13];
+                    star.style.left = "681px";
+                    star.innerHTML = "⭐⭐⭐⭐⭐"
+                }
+
+                document.getElementById("card").innerHTML = exp;
+                
+            }
+        });
+    </script>
+</head>
+<body >
+    <div class="container main">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <p1 id="card"></p1>
+    </div>
+    <p1 id="star"></p1>
+</body>
+</html>
